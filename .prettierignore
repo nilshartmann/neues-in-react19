@@ -1,0 +1,16 @@
+pnpm-lock.yaml
+
+public/fonts/google-fonts.css
+eslint.config.js
+vite.config.ts
+
+# Assets
+app/assets
+
+src/vite-env.d.ts
+public/assets/
+
+src/__generated__/**
+src/routeTree.gen.ts
+postcss.config.js
+README.md
