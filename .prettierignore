@@ -2,7 +2,6 @@ pnpm-lock.yaml
 
 public/fonts/google-fonts.css
 eslint.config.js
-vite.config.ts
 
 # Assets
 app/assets

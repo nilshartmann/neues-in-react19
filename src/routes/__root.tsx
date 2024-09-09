@@ -46,7 +46,6 @@ function RootLayout() {
           >
             use (Suspense) Conditional
           </Link>
-
           <Link
             to={"/20_use_context"}
             className={"cursor-pointer hover:text-violet-800 hover:underline"}
@@ -55,6 +54,25 @@ function RootLayout() {
             }}
           >
             use Context
+          </Link>
+
+          <Link
+            to={"/25_compiler"}
+            className={"cursor-pointer hover:text-violet-800 hover:underline"}
+            activeProps={{
+              className,
+            }}
+          >
+            Compiler
+          </Link>
+          <Link
+            to={"/27promise_rendern_exotisch"}
+            className={"cursor-pointer hover:text-violet-800 hover:underline"}
+            activeProps={{
+              className,
+            }}
+          >
+            Promise als JSX Element
           </Link>
         </nav>
         <main>
