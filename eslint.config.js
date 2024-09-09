@@ -4,6 +4,10 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 
+import unusedImports from "eslint-plugin-unused-imports";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import importPlugin from "eslint-plugin-import"
+
 export default tseslint.config(
   { ignores: ['dist', "routeTree.gen.ts"] },
   {
@@ -16,6 +20,9 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      "unused-imports": unusedImports,
+      "simple-import-sort": simpleImportSort,
+      "import": importPlugin
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -27,7 +34,11 @@ export default tseslint.config(
       "@typescript-eslint/ban-ts-comment": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/ban-types": "off",
-      "prefer-const": "off"
+      "prefer-const": "off",
+      "unused-imports/no-unused-imports": "error",
+      "simple-import-sort/imports": "error",
+      "import/first": "error",
+      "import/no-duplicates": "error"
     },
   },
 )
