@@ -12,7 +12,8 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as TitleIndexImport } from './routes/title/index'
+import { Route as R30metatitleIndexImport } from './routes/30_meta_title/index'
+import { Route as R29assetloadingIndexImport } from './routes/29_asset_loading/index'
 import { Route as R27promiserendernexotischIndexImport } from './routes/27promise_rendern_exotisch/index'
 import { Route as R25compilerIndexImport } from './routes/25_compiler/index'
 import { Route as R20usecontextIndexImport } from './routes/20_use_context/index'
@@ -27,8 +28,13 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const TitleIndexRoute = TitleIndexImport.update({
-  path: '/title/',
+const R30metatitleIndexRoute = R30metatitleIndexImport.update({
+  path: '/30_meta_title/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const R29assetloadingIndexRoute = R29assetloadingIndexImport.update({
+  path: '/29_asset_loading/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -117,11 +123,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R27promiserendernexotischIndexImport
       parentRoute: typeof rootRoute
     }
-    '/title/': {
-      id: '/title/'
-      path: '/title'
-      fullPath: '/title'
-      preLoaderRoute: typeof TitleIndexImport
+    '/29_asset_loading/': {
+      id: '/29_asset_loading/'
+      path: '/29_asset_loading'
+      fullPath: '/29_asset_loading'
+      preLoaderRoute: typeof R29assetloadingIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/30_meta_title/': {
+      id: '/30_meta_title/'
+      path: '/30_meta_title'
+      fullPath: '/30_meta_title'
+      preLoaderRoute: typeof R30metatitleIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -137,7 +150,8 @@ export interface FileRoutesByFullPath {
   '/20_use_context': typeof R20usecontextIndexRoute
   '/25_compiler': typeof R25compilerIndexRoute
   '/27promise_rendern_exotisch': typeof R27promiserendernexotischIndexRoute
-  '/title': typeof TitleIndexRoute
+  '/29_asset_loading': typeof R29assetloadingIndexRoute
+  '/30_meta_title': typeof R30metatitleIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -148,7 +162,8 @@ export interface FileRoutesByTo {
   '/20_use_context': typeof R20usecontextIndexRoute
   '/25_compiler': typeof R25compilerIndexRoute
   '/27promise_rendern_exotisch': typeof R27promiserendernexotischIndexRoute
-  '/title': typeof TitleIndexRoute
+  '/29_asset_loading': typeof R29assetloadingIndexRoute
+  '/30_meta_title': typeof R30metatitleIndexRoute
 }
 
 export interface FileRoutesById {
@@ -160,7 +175,8 @@ export interface FileRoutesById {
   '/20_use_context/': typeof R20usecontextIndexRoute
   '/25_compiler/': typeof R25compilerIndexRoute
   '/27promise_rendern_exotisch/': typeof R27promiserendernexotischIndexRoute
-  '/title/': typeof TitleIndexRoute
+  '/29_asset_loading/': typeof R29assetloadingIndexRoute
+  '/30_meta_title/': typeof R30metatitleIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -173,7 +189,8 @@ export interface FileRouteTypes {
     | '/20_use_context'
     | '/25_compiler'
     | '/27promise_rendern_exotisch'
-    | '/title'
+    | '/29_asset_loading'
+    | '/30_meta_title'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -183,7 +200,8 @@ export interface FileRouteTypes {
     | '/20_use_context'
     | '/25_compiler'
     | '/27promise_rendern_exotisch'
-    | '/title'
+    | '/29_asset_loading'
+    | '/30_meta_title'
   id:
     | '__root__'
     | '/'
@@ -193,7 +211,8 @@ export interface FileRouteTypes {
     | '/20_use_context/'
     | '/25_compiler/'
     | '/27promise_rendern_exotisch/'
-    | '/title/'
+    | '/29_asset_loading/'
+    | '/30_meta_title/'
   fileRoutesById: FileRoutesById
 }
 
@@ -205,7 +224,8 @@ export interface RootRouteChildren {
   R20usecontextIndexRoute: typeof R20usecontextIndexRoute
   R25compilerIndexRoute: typeof R25compilerIndexRoute
   R27promiserendernexotischIndexRoute: typeof R27promiserendernexotischIndexRoute
-  TitleIndexRoute: typeof TitleIndexRoute
+  R29assetloadingIndexRoute: typeof R29assetloadingIndexRoute
+  R30metatitleIndexRoute: typeof R30metatitleIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -216,7 +236,8 @@ const rootRouteChildren: RootRouteChildren = {
   R20usecontextIndexRoute: R20usecontextIndexRoute,
   R25compilerIndexRoute: R25compilerIndexRoute,
   R27promiserendernexotischIndexRoute: R27promiserendernexotischIndexRoute,
-  TitleIndexRoute: TitleIndexRoute,
+  R29assetloadingIndexRoute: R29assetloadingIndexRoute,
+  R30metatitleIndexRoute: R30metatitleIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -238,7 +259,8 @@ export const routeTree = rootRoute
         "/20_use_context/",
         "/25_compiler/",
         "/27promise_rendern_exotisch/",
-        "/title/"
+        "/29_asset_loading/",
+        "/30_meta_title/"
       ]
     },
     "/": {
@@ -262,8 +284,11 @@ export const routeTree = rootRoute
     "/27promise_rendern_exotisch/": {
       "filePath": "27promise_rendern_exotisch/index.tsx"
     },
-    "/title/": {
-      "filePath": "title/index.tsx"
+    "/29_asset_loading/": {
+      "filePath": "29_asset_loading/index.tsx"
+    },
+    "/30_meta_title/": {
+      "filePath": "30_meta_title/index.tsx"
     }
   }
 }

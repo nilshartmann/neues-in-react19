@@ -74,6 +74,15 @@ function RootLayout() {
           >
             Promise als JSX Element
           </Link>
+          <Link
+            to={"/30_meta_title"}
+            className={"cursor-pointer hover:text-violet-800 hover:underline"}
+            activeProps={{
+              className,
+            }}
+          >
+            Metadata: Title
+          </Link>
         </nav>
         <main>
           <Outlet />
