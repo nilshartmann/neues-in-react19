@@ -130,6 +130,17 @@ function RootLayout() {
           >
             Transition und optimistische Updates
           </Link>
+          <Link
+            to={"/50_formulare"}
+            className={
+              "cursor-pointer rounded-md bg-violet-200 p-3 hover:bg-violet-500 hover:text-violet-100 hover:underline"
+            }
+            activeProps={{
+              className,
+            }}
+          >
+            Formulare
+          </Link>
         </nav>
         <main>
           <Outlet />

@@ -10,4 +10,8 @@
   button:disabled {
     @apply cursor-default border-slate-400 bg-slate-300 text-slate-500;
   }
+
+  input {
+    @apply rounded-md border border-violet-950 p-2;
+  }
 }

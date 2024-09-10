@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as R50formulareIndexImport } from './routes/50_formulare/index'
 import { Route as R40transitionsIndexImport } from './routes/40_transitions/index'
 import { Route as R32metatitleIndexImport } from './routes/32_meta_title/index'
 import { Route as R30stylesheetsundlinksIndexImport } from './routes/30_stylesheets_und_links/index'
@@ -27,6 +28,11 @@ import { Route as R10suspenseIndexImport } from './routes/10suspense/index'
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const R50formulareIndexRoute = R50formulareIndexImport.update({
+  path: '/50_formulare/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -164,6 +170,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R40transitionsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/50_formulare/': {
+      id: '/50_formulare/'
+      path: '/50_formulare'
+      fullPath: '/50_formulare'
+      preLoaderRoute: typeof R50formulareIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -181,6 +194,7 @@ export interface FileRoutesByFullPath {
   '/30_stylesheets_und_links': typeof R30stylesheetsundlinksIndexRoute
   '/32_meta_title': typeof R32metatitleIndexRoute
   '/40_transitions': typeof R40transitionsIndexRoute
+  '/50_formulare': typeof R50formulareIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -195,6 +209,7 @@ export interface FileRoutesByTo {
   '/30_stylesheets_und_links': typeof R30stylesheetsundlinksIndexRoute
   '/32_meta_title': typeof R32metatitleIndexRoute
   '/40_transitions': typeof R40transitionsIndexRoute
+  '/50_formulare': typeof R50formulareIndexRoute
 }
 
 export interface FileRoutesById {
@@ -210,6 +225,7 @@ export interface FileRoutesById {
   '/30_stylesheets_und_links/': typeof R30stylesheetsundlinksIndexRoute
   '/32_meta_title/': typeof R32metatitleIndexRoute
   '/40_transitions/': typeof R40transitionsIndexRoute
+  '/50_formulare/': typeof R50formulareIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -226,6 +242,7 @@ export interface FileRouteTypes {
     | '/30_stylesheets_und_links'
     | '/32_meta_title'
     | '/40_transitions'
+    | '/50_formulare'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -239,6 +256,7 @@ export interface FileRouteTypes {
     | '/30_stylesheets_und_links'
     | '/32_meta_title'
     | '/40_transitions'
+    | '/50_formulare'
   id:
     | '__root__'
     | '/'
@@ -252,6 +270,7 @@ export interface FileRouteTypes {
     | '/30_stylesheets_und_links/'
     | '/32_meta_title/'
     | '/40_transitions/'
+    | '/50_formulare/'
   fileRoutesById: FileRoutesById
 }
 
@@ -267,6 +286,7 @@ export interface RootRouteChildren {
   R30stylesheetsundlinksIndexRoute: typeof R30stylesheetsundlinksIndexRoute
   R32metatitleIndexRoute: typeof R32metatitleIndexRoute
   R40transitionsIndexRoute: typeof R40transitionsIndexRoute
+  R50formulareIndexRoute: typeof R50formulareIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   R30stylesheetsundlinksIndexRoute: R30stylesheetsundlinksIndexRoute,
   R32metatitleIndexRoute: R32metatitleIndexRoute,
   R40transitionsIndexRoute: R40transitionsIndexRoute,
+  R50formulareIndexRoute: R50formulareIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -305,7 +326,8 @@ export const routeTree = rootRoute
         "/29_asset_loading/",
         "/30_stylesheets_und_links/",
         "/32_meta_title/",
-        "/40_transitions/"
+        "/40_transitions/",
+        "/50_formulare/"
       ]
     },
     "/": {
@@ -340,6 +362,9 @@ export const routeTree = rootRoute
     },
     "/40_transitions/": {
       "filePath": "40_transitions/index.tsx"
+    },
+    "/50_formulare/": {
+      "filePath": "50_formulare/index.tsx"
     }
   }
 }
