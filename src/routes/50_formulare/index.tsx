@@ -35,7 +35,6 @@ async function addContact(
 
 function ContactForm() {
   const [state, submit, isPending] = useActionState(addContact, null);
-
   return (
     <form action={submit} className={"flex max-w-48 flex-col space-y-4"}>
       <label>Firstname:</label>
