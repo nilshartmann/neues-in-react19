@@ -22,9 +22,11 @@ function About() {
   const [showContact, setShowContact] = useState(false);
   return (
     <div className={"rounded border border-slate-400 p-4"}>
-      <title>About this service</title>
-      <meta name={"author"} content={"Susi Müller"} />
+      {/*todo: title*/}
+      {/*todo: meta name=author und content*/}
+
       <h1>About this service</h1>
+
       <button onClick={() => setShowContact(!showContact)}>
         {showContact ? "Hide" : "Show"} Contact
       </button>
@@ -42,7 +44,7 @@ function Contact() {
         "flex items-center gap-x-2 rounded border border-slate-400 p-4"
       }
     >
-      <title>{title}</title>
+      {/*todo: title*/}
       <label>Contact data:</label>
       <input
         className={"rounded border border-slate-400 p-4"}

@@ -5,6 +5,8 @@ export const Route = createFileRoute("/30_stylesheets_und_links/")({
   component: EmbedCss,
 });
 
+// TODO: nur zeigen, funktioniert nicht :/
+
 function EmbedCss() {
   return (
     // Funktioniert hier nicht wie beschrieben:

@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useOptimistic, useState, useTransition } from "react";
-import { ErrorBoundary } from "react-error-boundary";
+import { useState } from "react";
 
 import { longRunningOperation } from "../../demo-utils.ts";
 
 export const Route = createFileRoute("/40_transitions/")({
-  component: LikeWidgetWrapper,
+  component: LikeWidget,
 });
 
 let likes = 0;
@@ -19,33 +18,32 @@ async function incrementLike() {
   return likes;
 }
 
-function LikeWidgetWrapper() {
-  return (
-    <ErrorBoundary fallback={<h1>Did not work</h1>}>
-      <LikeWidget />
-    </ErrorBoundary>
-  );
-}
+// todo
+// - LikesWidget
+// - Wrapper mit <ErrorBoundary />
 
 function LikeWidget() {
   const [likes, setLikes] = useState(0);
-  const [optimisticLikes, setOptimisticLikes] = useOptimistic(likes);
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
 
-  const handleStart = () => {
-    startTransition(async () => {
-      setOptimisticLikes(likes + 1);
-      const newLikes = await incrementLike();
+  const handleLikeClick = () => {
+    setIsPending(true);
+
+    // todo: Transition
+    // todo: optimistic
+
+    incrementLike().then((newLikes) => {
+      setIsPending(false);
       setLikes(newLikes);
     });
   };
 
   return (
     <div>
-      {isPending && "Liking..."}
-      <button disabled={isPending} onClick={handleStart}>
-        {optimisticLikes} Like
+      <button disabled={isPending} onClick={handleLikeClick}>
+        {likes} Like
       </button>
+      {isPending && <div>Liking...</div>}
     </div>
   );
 }

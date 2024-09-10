@@ -27,24 +27,20 @@ function CounterContextProvider({ children }: CounterContextProviderProps) {
   );
 }
 
-function getCounter(): ICounterContext {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const ctx = use(CounterContext);
-  if (!ctx) {
-    throw new Error("Invalid setup");
-  }
+// TODO:
+//  - createContext zeigen
+//  - CountButton: use verwenden direkt im Click-Handler
+//  - CounterDisplay: use hinzufügen
+//  - Render-Zyklen
 
-  return ctx;
-}
-
-function CountButton() {
-  console.log("Render Count Button");
-  const counter = getCounter();
-
+function CounterExample() {
   return (
-    <div className={"rounded border border-slate-400 p-4"}>
-      <button onClick={() => counter.increase()}>Increase</button>
-    </div>
+    <CounterContextProvider>
+      <div className={"flex gap-x-4"}>
+        <CountButton />
+        <CounterDisplay />
+      </div>
+    </CounterContextProvider>
   );
 }
 
@@ -58,18 +54,17 @@ function CounterDisplay() {
       <button onClick={() => setShowValue(!showValue)}>
         {showValue ? "Hide" : "Show"} Value
       </button>
-      {showValue && <p>Current value: {getCounter().currentValue}</p>}
+      {showValue && <p>Current value: {use(CounterContext)!.currentValue}</p>}
     </div>
   );
 }
 
-function CounterExample() {
+function CountButton() {
+  console.log("Render Count Button");
+
   return (
-    <CounterContextProvider>
-      <div className={"flex gap-x-4"}>
-        <CountButton />
-        <CounterDisplay />
-      </div>
-    </CounterContextProvider>
+    <div className={"rounded border border-slate-400 p-4"}>
+      <button>Increase</button>
+    </div>
   );
 }

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Suspense, use } from "react";
 
 import { longRunningOperation } from "../../demo-utils.ts";
 
@@ -15,7 +14,7 @@ function loadPageData() {
 }
 
 export const Route = createFileRoute("/12use_promise/")({
-  component: Wrapper,
+  component: UseExample,
   loader: () => {
     return {
       resultPromise: loadPageData(),
@@ -23,20 +22,20 @@ export const Route = createFileRoute("/12use_promise/")({
   },
 });
 
-function Wrapper() {
-  return (
-    <Suspense fallback={"Waiting for Page Data..."}>
-      <UseExample />
-    </Suspense>
-  );
-}
+// todo:
+//   - Route.useLoaderData verwenden
+//   - auf resultPromise warten
+//   - Ergebnis ausgeben
+//   - Wrapper-Komponente mit Suspense
 
 //
 function UseExample() {
   console.log("Start Rendering use-Example");
-  const loaderData = Route.useLoaderData();
+
+  const loaderData = null;
   console.log("Data from loader", loaderData);
-  const result = use(loaderData.resultPromise);
+
+  const result = null;
   console.log("Loader Data Recived", result);
 
   return (

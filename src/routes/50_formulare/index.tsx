@@ -1,7 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useActionState } from "react";
-
-import { longRunningOperation } from "../../demo-utils.ts";
 
 export const Route = createFileRoute("/50_formulare/")({
   component: ContactForm,
@@ -18,34 +15,27 @@ async function addContact(
 ): Promise<FormState | null> {
   const contactData = Object.fromEntries(formData);
 
-  if (!contactData.firstname) {
-    return {
-      error: "No firstname!",
-    };
-  }
+  // todo: longRunningOperation
+  // wenn firstname nicht gesetzt, error zurück
+  // ansonsten msg
 
-  await longRunningOperation("", 2000);
-
-  console.log("contactData", contactData);
-
-  return {
-    msg: "Contact saved.",
-  };
+  return null;
 }
 
 function ContactForm() {
-  const [state, submit, isPending] = useActionState(addContact, null);
+  // todo useActionState mit addContact und null
+  //  - form action angeben
+  // - state?.error
+  // - state?.message
+  // - isPending
   return (
-    <form action={submit} className={"flex max-w-48 flex-col space-y-4"}>
+    <form className={"flex max-w-48 flex-col space-y-4"}>
       <label>Firstname:</label>
       <input name={"firstname"} />
       <label>Lastname:</label>
       <input name={"lastname"} />
 
       <button type="submit">Add</button>
-      {state?.error && <p>Error: {state.error}</p>}
-      {state?.msg && <p>{state.msg}</p>}
-      {isPending && <p>Contact saving...</p>}
     </form>
   );
 }
