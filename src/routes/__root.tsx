@@ -72,7 +72,7 @@ function RootLayout() {
               className,
             }}
           >
-            Promise als JSX Element
+            ReactNode als Promise
           </Link>
           <Link
             to={"/30_meta_title"}
