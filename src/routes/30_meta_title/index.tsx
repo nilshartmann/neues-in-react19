@@ -24,6 +24,7 @@ function About() {
     <div className={"rounded border border-slate-400 p-4"}>
       <h1>About</h1>
       <title>About this service</title>
+      <meta name={"author"} content={"Susi Müller"} />
       <button onClick={() => setShowContact(!showContact)}>
         {showContact ? "Hide" : "Show"} Contact
       </button>
