@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   button {
-    @apply px-3 py-2 font-inter cursor-pointer border-violet-950 border-2 rounded-md bg-violet-50 hover:bg-violet-900 hover:text-violet-50
+    @apply font-inter cursor-pointer rounded-md border-2 border-violet-950 bg-violet-50 px-3 py-2 hover:bg-violet-900 hover:text-violet-50;
+  }
+
+  button:disabled {
+    @apply cursor-default border-slate-400 bg-slate-300 text-slate-500;
   }
 }

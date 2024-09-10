@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-export const Route = createFileRoute("/30_meta_title/")({
+export const Route = createFileRoute("/32_meta_title/")({
   component: MetadataExample,
 });
 
@@ -22,9 +22,9 @@ function About() {
   const [showContact, setShowContact] = useState(false);
   return (
     <div className={"rounded border border-slate-400 p-4"}>
-      <h1>About</h1>
       <title>About this service</title>
       <meta name={"author"} content={"Susi Müller"} />
+      <h1>About this service</h1>
       <button onClick={() => setShowContact(!showContact)}>
         {showContact ? "Hide" : "Show"} Contact
       </button>

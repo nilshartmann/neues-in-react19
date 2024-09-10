@@ -98,7 +98,18 @@ function RootLayout() {
             Asset Loading
           </Link>
           <Link
-            to={"/30_meta_title"}
+            to={"/30_stylesheets_und_links"}
+            className={
+              "cursor-pointer rounded-md bg-violet-200 p-3 hover:bg-violet-500 hover:text-violet-100 hover:underline"
+            }
+            activeProps={{
+              className,
+            }}
+          >
+            Scripts und CSS
+          </Link>
+          <Link
+            to={"/32_meta_title"}
             className={
               "cursor-pointer rounded-md bg-violet-200 p-3 hover:bg-violet-500 hover:text-violet-100 hover:underline"
             }
@@ -109,7 +120,7 @@ function RootLayout() {
             Metadata: Title
           </Link>
           <Link
-            to={"/32_meta_css"}
+            to={"/40_transitions"}
             className={
               "cursor-pointer rounded-md bg-violet-200 p-3 hover:bg-violet-500 hover:text-violet-100 hover:underline"
             }
@@ -117,7 +128,7 @@ function RootLayout() {
               className,
             }}
           >
-            Metadata: Scripts und CSS
+            Transition und optimistische Updates
           </Link>
         </nav>
         <main>

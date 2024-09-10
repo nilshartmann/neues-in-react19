@@ -12,8 +12,9 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as R32metacssIndexImport } from './routes/32_meta_css/index'
-import { Route as R30metatitleIndexImport } from './routes/30_meta_title/index'
+import { Route as R40transitionsIndexImport } from './routes/40_transitions/index'
+import { Route as R32metatitleIndexImport } from './routes/32_meta_title/index'
+import { Route as R30stylesheetsundlinksIndexImport } from './routes/30_stylesheets_und_links/index'
 import { Route as R29assetloadingIndexImport } from './routes/29_asset_loading/index'
 import { Route as R27promiserendernexotischIndexImport } from './routes/27promise_rendern_exotisch/index'
 import { Route as R25compilerIndexImport } from './routes/25_compiler/index'
@@ -29,15 +30,21 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const R32metacssIndexRoute = R32metacssIndexImport.update({
-  path: '/32_meta_css/',
+const R40transitionsIndexRoute = R40transitionsIndexImport.update({
+  path: '/40_transitions/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const R30metatitleIndexRoute = R30metatitleIndexImport.update({
-  path: '/30_meta_title/',
+const R32metatitleIndexRoute = R32metatitleIndexImport.update({
+  path: '/32_meta_title/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const R30stylesheetsundlinksIndexRoute =
+  R30stylesheetsundlinksIndexImport.update({
+    path: '/30_stylesheets_und_links/',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 const R29assetloadingIndexRoute = R29assetloadingIndexImport.update({
   path: '/29_asset_loading/',
@@ -136,18 +143,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R29assetloadingIndexImport
       parentRoute: typeof rootRoute
     }
-    '/30_meta_title/': {
-      id: '/30_meta_title/'
-      path: '/30_meta_title'
-      fullPath: '/30_meta_title'
-      preLoaderRoute: typeof R30metatitleIndexImport
+    '/30_stylesheets_und_links/': {
+      id: '/30_stylesheets_und_links/'
+      path: '/30_stylesheets_und_links'
+      fullPath: '/30_stylesheets_und_links'
+      preLoaderRoute: typeof R30stylesheetsundlinksIndexImport
       parentRoute: typeof rootRoute
     }
-    '/32_meta_css/': {
-      id: '/32_meta_css/'
-      path: '/32_meta_css'
-      fullPath: '/32_meta_css'
-      preLoaderRoute: typeof R32metacssIndexImport
+    '/32_meta_title/': {
+      id: '/32_meta_title/'
+      path: '/32_meta_title'
+      fullPath: '/32_meta_title'
+      preLoaderRoute: typeof R32metatitleIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/40_transitions/': {
+      id: '/40_transitions/'
+      path: '/40_transitions'
+      fullPath: '/40_transitions'
+      preLoaderRoute: typeof R40transitionsIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -164,8 +178,9 @@ export interface FileRoutesByFullPath {
   '/25_compiler': typeof R25compilerIndexRoute
   '/27promise_rendern_exotisch': typeof R27promiserendernexotischIndexRoute
   '/29_asset_loading': typeof R29assetloadingIndexRoute
-  '/30_meta_title': typeof R30metatitleIndexRoute
-  '/32_meta_css': typeof R32metacssIndexRoute
+  '/30_stylesheets_und_links': typeof R30stylesheetsundlinksIndexRoute
+  '/32_meta_title': typeof R32metatitleIndexRoute
+  '/40_transitions': typeof R40transitionsIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -177,8 +192,9 @@ export interface FileRoutesByTo {
   '/25_compiler': typeof R25compilerIndexRoute
   '/27promise_rendern_exotisch': typeof R27promiserendernexotischIndexRoute
   '/29_asset_loading': typeof R29assetloadingIndexRoute
-  '/30_meta_title': typeof R30metatitleIndexRoute
-  '/32_meta_css': typeof R32metacssIndexRoute
+  '/30_stylesheets_und_links': typeof R30stylesheetsundlinksIndexRoute
+  '/32_meta_title': typeof R32metatitleIndexRoute
+  '/40_transitions': typeof R40transitionsIndexRoute
 }
 
 export interface FileRoutesById {
@@ -191,8 +207,9 @@ export interface FileRoutesById {
   '/25_compiler/': typeof R25compilerIndexRoute
   '/27promise_rendern_exotisch/': typeof R27promiserendernexotischIndexRoute
   '/29_asset_loading/': typeof R29assetloadingIndexRoute
-  '/30_meta_title/': typeof R30metatitleIndexRoute
-  '/32_meta_css/': typeof R32metacssIndexRoute
+  '/30_stylesheets_und_links/': typeof R30stylesheetsundlinksIndexRoute
+  '/32_meta_title/': typeof R32metatitleIndexRoute
+  '/40_transitions/': typeof R40transitionsIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -206,8 +223,9 @@ export interface FileRouteTypes {
     | '/25_compiler'
     | '/27promise_rendern_exotisch'
     | '/29_asset_loading'
-    | '/30_meta_title'
-    | '/32_meta_css'
+    | '/30_stylesheets_und_links'
+    | '/32_meta_title'
+    | '/40_transitions'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -218,8 +236,9 @@ export interface FileRouteTypes {
     | '/25_compiler'
     | '/27promise_rendern_exotisch'
     | '/29_asset_loading'
-    | '/30_meta_title'
-    | '/32_meta_css'
+    | '/30_stylesheets_und_links'
+    | '/32_meta_title'
+    | '/40_transitions'
   id:
     | '__root__'
     | '/'
@@ -230,8 +249,9 @@ export interface FileRouteTypes {
     | '/25_compiler/'
     | '/27promise_rendern_exotisch/'
     | '/29_asset_loading/'
-    | '/30_meta_title/'
-    | '/32_meta_css/'
+    | '/30_stylesheets_und_links/'
+    | '/32_meta_title/'
+    | '/40_transitions/'
   fileRoutesById: FileRoutesById
 }
 
@@ -244,8 +264,9 @@ export interface RootRouteChildren {
   R25compilerIndexRoute: typeof R25compilerIndexRoute
   R27promiserendernexotischIndexRoute: typeof R27promiserendernexotischIndexRoute
   R29assetloadingIndexRoute: typeof R29assetloadingIndexRoute
-  R30metatitleIndexRoute: typeof R30metatitleIndexRoute
-  R32metacssIndexRoute: typeof R32metacssIndexRoute
+  R30stylesheetsundlinksIndexRoute: typeof R30stylesheetsundlinksIndexRoute
+  R32metatitleIndexRoute: typeof R32metatitleIndexRoute
+  R40transitionsIndexRoute: typeof R40transitionsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -257,8 +278,9 @@ const rootRouteChildren: RootRouteChildren = {
   R25compilerIndexRoute: R25compilerIndexRoute,
   R27promiserendernexotischIndexRoute: R27promiserendernexotischIndexRoute,
   R29assetloadingIndexRoute: R29assetloadingIndexRoute,
-  R30metatitleIndexRoute: R30metatitleIndexRoute,
-  R32metacssIndexRoute: R32metacssIndexRoute,
+  R30stylesheetsundlinksIndexRoute: R30stylesheetsundlinksIndexRoute,
+  R32metatitleIndexRoute: R32metatitleIndexRoute,
+  R40transitionsIndexRoute: R40transitionsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -281,8 +303,9 @@ export const routeTree = rootRoute
         "/25_compiler/",
         "/27promise_rendern_exotisch/",
         "/29_asset_loading/",
-        "/30_meta_title/",
-        "/32_meta_css/"
+        "/30_stylesheets_und_links/",
+        "/32_meta_title/",
+        "/40_transitions/"
       ]
     },
     "/": {
@@ -309,11 +332,14 @@ export const routeTree = rootRoute
     "/29_asset_loading/": {
       "filePath": "29_asset_loading/index.tsx"
     },
-    "/30_meta_title/": {
-      "filePath": "30_meta_title/index.tsx"
+    "/30_stylesheets_und_links/": {
+      "filePath": "30_stylesheets_und_links/index.tsx"
     },
-    "/32_meta_css/": {
-      "filePath": "32_meta_css/index.tsx"
+    "/32_meta_title/": {
+      "filePath": "32_meta_title/index.tsx"
+    },
+    "/40_transitions/": {
+      "filePath": "40_transitions/index.tsx"
     }
   }
 }
