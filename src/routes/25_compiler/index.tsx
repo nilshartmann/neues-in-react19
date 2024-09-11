@@ -29,14 +29,18 @@ function Parent() {
   );
 }
 
-function CounterHint() {
+// type CounterHintProps = {
+//   value: any;
+// };
+
+const CounterHint = function CounterHint() {
   console.log(new Date().toISOString(), "Rendering CounterHint");
   return (
     <div className={"flex gap-x-4 border border-slate-400 p-4"}>
       Hint: Click on button to see things working.
     </div>
   );
-}
+};
 
 type CounterDisplayProps = { counter: number };
 

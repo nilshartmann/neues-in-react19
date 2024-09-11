@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Suspense, useState } from "react";
+import { Suspense, use, useState } from "react";
 
 import { longRunningOperation } from "../../demo-utils.ts";
 
@@ -40,7 +40,7 @@ function UseExample() {
   return (
     <div>
       <button onClick={() => setShowData(true)}>Show data!</button>
-      {showData ? <p>Page Data: TODO LADEN!</p> : null}
+      {showData ? <p>Page Data: {use(loaderData.resultPromise)}</p> : null}
     </div>
   );
 }

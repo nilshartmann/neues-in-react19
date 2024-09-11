@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { preload } from "react-dom";
 
 export const Route = createFileRoute("/29_asset_loading/")({
   component: Assets,
@@ -9,7 +10,9 @@ function Assets() {
 
   return (
     <div>
-      <button>Change Background</button>
+      <button onClick={() => preload("/css/custom-bg.css", { as: "style" })}>
+        Change Background
+      </button>
     </div>
   );
 }

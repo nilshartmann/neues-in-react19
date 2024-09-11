@@ -26,6 +26,7 @@ function About() {
       {/*todo: meta name=author und content*/}
 
       <h1>About this service</h1>
+      <title>About this service</title>
 
       <button onClick={() => setShowContact(!showContact)}>
         {showContact ? "Hide" : "Show"} Contact
@@ -37,13 +38,14 @@ function About() {
 
 function Contact() {
   const [name, setName] = useState("");
-  const title = `Hello, ${name}`;
+  const title = `${name}`;
   return (
     <div
       className={
         "flex items-center gap-x-2 rounded border border-slate-400 p-4"
       }
     >
+      <title>{title}</title>
       {/*todo: title*/}
       <label>Contact data:</label>
       <input

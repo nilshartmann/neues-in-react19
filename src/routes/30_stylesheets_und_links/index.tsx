@@ -17,7 +17,6 @@ function EmbedCss() {
       <link rel="stylesheet" href="/css/changelog.css" />
       <link rel="script" href="/js/hello-world.js" />
       <script>console.log("MOIN")</script>
-
       <div className={"Changelog"}>Changelog with custom styling.</div>
     </Suspense>
   );
